@@ -1,7 +1,7 @@
 import User from "../model/User.js";
 import bcrypt from "bcryptjs";
 
-export const getAllUser = async (req, res, next) => {
+export const getAllUser = async (req, res) => {
   let users;
   try {
     users = await User.find();
@@ -14,7 +14,7 @@ export const getAllUser = async (req, res, next) => {
   return res.status(200).json({ users });
 };
 
-export const signup = async (req, res, next) => {
+export const signup = async (req, res) => {
   const { name, email, password } = req.body;
   let existingUser;
   try {
@@ -44,7 +44,7 @@ export const signup = async (req, res, next) => {
   return res.status(201).json({ user });
 };
 
-export const login = async (req, res, next) => {
+export const login = async (req, res) => {
   const { email, password } = req.body;
   let existingUser;
   try {
